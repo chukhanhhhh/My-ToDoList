@@ -34,7 +34,6 @@ const ToDoForm = props => {
         e.preventDefault();
         if(!onSearch) return;
         const formValues = {
-            // id: Math.floor(Math.random()*100),
             resultSearch
         };
         onSearch(formValues);
@@ -47,6 +46,8 @@ const ToDoForm = props => {
                id=""
                value={value}
                onChange={handleValueChange}
+               placeholder="Jot add something"
+               required
             />
 
             <button type="submit"

@@ -24,10 +24,19 @@
         .title{
             flex-grow: 1;
         }
+
+        .title-complete {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .anticon-close-circle {
+            opacity: 1 !important;
+        }
     }
 
-    .todo-list-complete{
-        opacity: 0.5 !important;
-        text-decoration: line-through !important;
-    }
+    // .todo-list-complete{
+    //     opacity: 0.5 ;
+    //     text-decoration: line-through;
+    // }
 }

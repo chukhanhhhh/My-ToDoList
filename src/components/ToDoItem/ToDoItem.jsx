@@ -1,7 +1,9 @@
 import React from 'react'
-import { CheckCircleTwoTone, DeleteTwoTone} from "@ant-design/icons";
+import { CheckCircleTwoTone, DeleteTwoTone, CloseCircleTwoTone} from "@ant-design/icons";
 import PropTypes from 'prop-types'
 import './ToDoItem.scss';
+
+
 
 const ToDoItem = props => {
     const {todos, onToClickDelete, onToClickComplete} = props;
@@ -18,11 +20,12 @@ const ToDoItem = props => {
         <div className="todo-list">
         {    todos.map(todo => (
                 <div
-                    className = {todo.complete ? 'todo-list-item todo-list-complete' : 'todo-list-item'}
+                    className = 'todo-list-item'
                 >
-                    <CheckCircleTwoTone onClick={()=>handleUserComplete(todo)} />
+                    {todo.complete ? <CloseCircleTwoTone onClick={()=>handleUserComplete(todo)}/> : <CheckCircleTwoTone onClick={()=>handleUserComplete(todo)}/>}
+                    {/* <CheckCircleTwoTone onClick={()=>handleUserComplete(todo)} /> */}
                     <p  key={todo.id}
-                        className='title'
+                        className={todo.complete ? 'title title-complete' : 'title'}
                     >{todo.title}</p>
                     <DeleteTwoTone 
                         onClick = {()=> handleUserDelete(todo)}

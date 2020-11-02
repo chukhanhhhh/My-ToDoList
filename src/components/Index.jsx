@@ -12,10 +12,6 @@ const Index = props => {
         {id: 3, title: 'User can add new todo item with text', complete : false}
     ]); 
 
-    // const [complete, setComplete] = useState(false);
-
-
-    
     const handleToDoFormSumbit = (formValues)=>{
         console.log('Form submit:' , formValues);
         
@@ -42,7 +38,10 @@ const Index = props => {
         
         console.log('newFilter: ', newFilter );
         const filterSearch = [...todoList];
-        const resutls = filterSearch.filter(search =>  search.title === newFilter.resultSearch );
+        const resutls = filterSearch.filter((search )=>  search.title === newFilter.resultSearch );
+        // for(let i = 0; i < resutls.title.length; i++){
+        //     if(resutls )
+        // }
         setToDoList(resutls)
     }
 
