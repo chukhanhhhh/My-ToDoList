@@ -1,38 +1,57 @@
-import React, {useState} from 'react'
-import {DeleteTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { CheckCircleTwoTone, DeleteTwoTone, CloseCircleTwoTone} from "@ant-design/icons";
+import PropTypes from 'prop-types'
 import './ToDoItem.scss';
 
+const ToDoItem = props => {
+    const {todos, onToClick} = props;
+    const [complete, setComplete] = useState(false);
 
-const ToDoItem = ({TextInput, key, handlerDelete, }) => {
-    const [isCheck, setCheck] = useState(false);
-    const handleRemoveItem = (e) => {
-        handlerDelete((deleteItem) => deleteItem.key === key);
+
+
+    const handleUserDelete = (todo) => {
+        if(onToClick){onToClick(todo)}
     }
 
-
-
-    const toggleClassComplete= (e) => {
-        e.preventDefault();
-        setCheck({isCheck : !isCheck})
-
-        toggleClassReopen();
+    const handlerUserComplete = () => {
+        setComplete({complete : !complete});
     }
 
-    const toggleClassReopen = () => {
-        setCheck({isCheck : !isCheck})
-    }
-
-
+    
 
     return (
-        <div className={(isCheck) ? 'complete-todolist' : "List-item"} 
-        >
-                <CheckCircleTwoTone onClick={toggleClassComplete}/>
-                <p className="text">I am {TextInput}</p>
-                <DeleteTwoTone onClick={handleRemoveItem}/>
-                {/* <button onClick={handleRemoveItem}>Delete</button> */}
+        <div className="todo-list">
+        {    todos.map(todo => (
+                <div 
+                    className= {
+                        (complete) ?
+                         'todo-list-item-complete'
+                        :'todo-list-item'} 
+                >
+                    <CheckCircleTwoTone
+                        onClick={handlerUserComplete}
+                    />
+                    <p  key={todo.id}
+                        className="title"
+                    >{todo.title}</p>
+                    <DeleteTwoTone 
+                        onClick = {()=> handleUserDelete(todo)}
+                    />
+                </div>
+            ))
+        }
         </div>
     )
+}
+
+ToDoItem.propTypes = {
+    todos: PropTypes.array,
+    onToClick : PropTypes.func
+}
+
+ToDoItem.defaultProps = {
+    todos: [],
+    onToClick : null
 }
 
 export default ToDoItem
