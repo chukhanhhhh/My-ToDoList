@@ -1,38 +1,28 @@
-import React, { useState } from 'react'
-import { CheckCircleTwoTone, DeleteTwoTone, CloseCircleTwoTone} from "@ant-design/icons";
+import React from 'react'
+import { CheckCircleTwoTone, DeleteTwoTone} from "@ant-design/icons";
 import PropTypes from 'prop-types'
 import './ToDoItem.scss';
 
 const ToDoItem = props => {
-    const {todos, onToClick} = props;
-    const [complete, setComplete] = useState(false);
-
-
+    const {todos, onToClickDelete, onToClickComplete} = props;
 
     const handleUserDelete = (todo) => {
-        if(onToClick){onToClick(todo)}
+        if(onToClickDelete){onToClickDelete(todo)}
     }
 
-    const handlerUserComplete = () => {
-        setComplete({complete : !complete});
+    const handleUserComplete = (todo) => {
+        if(onToClickComplete){onToClickComplete(todo)}
     }
-
-    
 
     return (
         <div className="todo-list">
         {    todos.map(todo => (
-                <div 
-                    className= {
-                        (complete) ?
-                         'todo-list-item-complete'
-                        :'todo-list-item'} 
+                <div
+                    className = {todo.complete ? 'todo-list-item todo-list-complete' : 'todo-list-item'}
                 >
-                    <CheckCircleTwoTone
-                        onClick={handlerUserComplete}
-                    />
+                    <CheckCircleTwoTone onClick={()=>handleUserComplete(todo)} />
                     <p  key={todo.id}
-                        className="title"
+                        className='title'
                     >{todo.title}</p>
                     <DeleteTwoTone 
                         onClick = {()=> handleUserDelete(todo)}
@@ -46,12 +36,14 @@ const ToDoItem = props => {
 
 ToDoItem.propTypes = {
     todos: PropTypes.array,
-    onToClick : PropTypes.func
+    onToClickDelete : PropTypes.func,
+    onToClickComplete : PropTypes.func,
 }
 
 ToDoItem.defaultProps = {
     todos: [],
-    onToClick : null
+    onToClick : null,
+    onToClickComplete : null,
 }
 
 export default ToDoItem

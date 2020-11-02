@@ -7,15 +7,12 @@ import ToDoForm from './ToDoForm/ToDoForm';
 
 const Index = props => {
     const [todoList, setToDoList] = useState([
-        {id: 1, title: 'Create an ToDo-list app with React'},
-        {id: 2, title: 'Have a list to show todo items'},
-        {id: 3, title: 'User can add new todo item with text'}
+        {id: 1, title: 'Create an ToDo-list app with React', complete : false},
+        {id: 2, title: 'Have a list to show todo items', complete : false},
+        {id: 3, title: 'User can add new todo item with text', complete : false}
     ]); 
 
-    // const [filters, setFilter ] = useState({
-    //     search : '', 
-    // });
-
+    // const [complete, setComplete] = useState(false);
 
 
     
@@ -48,6 +45,18 @@ const Index = props => {
         const resutls = filterSearch.filter(search =>  search.title === newFilter.resultSearch );
         setToDoList(resutls)
     }
+
+    const handleUserComplete = (todo) => {
+
+        const results = todoList.map((comp) => {
+            if(comp.id === todo.id){
+                return {...comp, complete : !comp.complete}
+            }
+            return comp
+        })
+
+        setToDoList(results);
+    }
     return (
         <div className="index">
             <ToDoForm 
@@ -55,8 +64,10 @@ const Index = props => {
                 onSearch = {handleToDoFormSearch}
             />
             <ToDoItem  
+                // complete = {todoList.comlete}
                 todos={todoList}
-                onToClick = {handleUserDelete}
+                onToClickDelete = {handleUserDelete}
+                onToClickComplete = {handleUserComplete}
             />
         </div>
     )

@@ -5,8 +5,7 @@
     flex-direction: column-reverse;
     margin: 0 auto;
 
-    .todo-list-item,
-    .todo-list-item-complete
+    .todo-list-item
     {
         display: flex;
         flex-direction: row;
@@ -26,10 +25,9 @@
             flex-grow: 1;
         }
     }
-    
 
-    .todo-list-item-complete{
-        opacity: 0.5;
-        text-decoration: line-through;
+    .todo-list-complete{
+        opacity: 0.5 !important;
+        text-decoration: line-through !important;
     }
 }

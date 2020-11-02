@@ -20,6 +20,7 @@ const ToDoForm = props => {
         const formValues = {
             id: Math.floor(Math.random()*100),
             title : value,
+            complete : false
         };
 
         onSubmit(formValues);
