@@ -1,0 +1,14 @@
+.form {
+    width: 100%;
+
+    input{
+        // flex: 0 0 90%;
+        width: 50%;
+        padding : .5rem 0;
+    }
+
+    button {
+        padding: .5rem;
+        margin: 0 .5rem;
+    }
+}

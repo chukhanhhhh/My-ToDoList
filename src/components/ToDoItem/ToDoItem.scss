@@ -1,47 +1,35 @@
-.List-item,
-.complete-todolist {
-    cursor: pointer;
+.todo-list{
+    // margin: 2rem 0;
     width: 95%;
-    padding: .5rem;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border: 1px solid black;
-    margin: .3rem 1rem;
+    flex-direction: column-reverse;
+    margin: 0 auto;
 
-    .anticon{
-        font-size: 1.2rem;
-    }
-
-    .anticon-check-circle{
-        // justify-content: flex-start;
-        outline: none;
-        margin: auto 1rem;
-        cursor: pointer;
-    }
-
-    .text{
-        flex-grow: 1;
+    .todo-list-item,
+    .todo-list-item-complete
+    {
+        display: flex;
+        flex-direction: row;
         justify-content: center;
-    }
-
-    .complete-true{
-        line-height: 1rem;
-        opacity: .5;
-    }
-
-
-    .anticon-delete{
-        justify-content: flex-end;
-        margin: auto 1rem;
+        margin: 1rem 0;
+        padding: 1rem 0;
+        border: 1px solid whitesmoke;
         cursor: pointer;
+
+        .anticon{
+            margin: auto .5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .title{
+            flex-grow: 1;
+        }
     }
-}
+    
 
-.complete-todolist{
-    opacity: .5;
-}
-
-.List-item {
-    opacity: 1;
+    .todo-list-item-complete{
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
 }
