@@ -33,10 +33,10 @@ const ToDoForm = props => {
     const handleSearch = (e) => {
         e.preventDefault();
         if(!onSearch) return;
-        const formValues = {
+        const formSearchValues = {
             resultSearch
         };
-        onSearch(formValues);
+        onSearch(formSearchValues);
     }
 
     return (
