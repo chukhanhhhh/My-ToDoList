@@ -18,7 +18,7 @@ const ToDoForm = ({onSubmit, onSearch}) => {
         e.preventDefault();
         if(!onSubmit) return;
         const formValues = {
-            id: Math.floor(Math.random()*100),
+            id: Math.floor(Math.random()*1000),
             title : value,
             complete : false
         };
