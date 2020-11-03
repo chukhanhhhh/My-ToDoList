@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
 import './Index.scss';
 import ToDoItem from './ToDoItem/ToDoItem'
 import ToDoForm from './ToDoForm/ToDoForm';
@@ -72,10 +71,10 @@ const Index = props => {
     )
 }
 
-Index.propTypes = {
-    todos: PropTypes.array,
-    onToClick : PropTypes.func
-};
+// Index.propTypes = {
+//     todos: PropTypes.array,
+//     onToClick : PropTypes.func
+// };
 
 
 export default Index

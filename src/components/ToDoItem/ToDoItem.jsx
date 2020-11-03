@@ -45,7 +45,7 @@ ToDoItem.propTypes = {
 
 ToDoItem.defaultProps = {
     todos: [],
-    onToClick : null,
+    onToClickDelete : null,
     onToClickComplete : null,
 }
 
