@@ -64,6 +64,7 @@ const ToDoForm = ({onSubmit, onSearch}) => {
 ToDoForm.propTypes = {
     onSubmit : PropTypes.func,
     onSearch : PropTypes.func,
+    onReSearch : PropTypes.func,
 }
 
 ToDoForm.defaultProps = {

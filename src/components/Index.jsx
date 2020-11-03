@@ -37,10 +37,7 @@ const Index = props => {
         
         console.log('newFilter: ', newFilter );
         const filterSearch = [...todoList];
-        const resutls = filterSearch.filter((search )=>  search.title === newFilter.resultSearch );
-        // for(let i = 0; i < resutls.title.length; i++){
-        //     if(resutls )
-        // }
+        const resutls = filterSearch.filter((search )=>  search.title.toLowerCase().includes(newFilter.resultSearch.toLowerCase()) );
         setToDoList(resutls)
     }
 
