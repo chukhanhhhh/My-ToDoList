@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import './ToDoForm.scss';
 // import ToDoItem from '../ToDoItem/ToDoItem'
 
-const ToDoForm = props => {
-    const {onSubmit, onSearch} = props;
+const ToDoForm = ({onSubmit, onSearch}) => {
+    // const {onSubmit, onSearch} = props;
     const [value, setValue] = useState('');
     const [resultSearch, setSearchResults] = useState('');
 

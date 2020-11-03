@@ -5,8 +5,8 @@ import './ToDoItem.scss';
 
 
 
-const ToDoItem = props => {
-    const {todos, onToClickDelete, onToClickComplete} = props;
+const ToDoItem = ({todos, onToClickDelete, onToClickComplete}) => {
+    // const {todos, onToClickDelete, onToClickComplete} = props;
 
     const handleUserDelete = (todo) => {
         if(onToClickDelete){onToClickDelete(todo)}
